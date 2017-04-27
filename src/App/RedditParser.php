@@ -4,6 +4,15 @@ namespace App;
 use Nathanmac\Utilities\Parser\Parser;
 use GuzzleHttp\Client;
 
+/**
+ * Reddit Parser
+ *
+ * Handles calls to the reddit json endpoint and
+ * parses the response.
+ *
+ * @author awilliams
+ *        
+ */
 class RedditParser
 {
 
@@ -27,6 +36,9 @@ class RedditParser
 
     protected $base_url = 'https://www.reddit.com/r/';
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->client = new Client([
@@ -40,6 +52,11 @@ class RedditParser
         $this->parser = new Parser();
     }
 
+    /**
+     *
+     * @param string $payload            
+     * @return Array
+     */
     protected function getPosts($payload)
     {
         $body = $this->parser->json($payload);
@@ -49,25 +66,55 @@ class RedditParser
         return [];
     }
 
-    public function request($channel, $category, $args = [])
+    /**
+     * Handles building of the API request query url.
+     *
+     * @param string $channel            
+     * @param string $category            
+     * @param array $args            
+     * @return string
+     */
+    protected function buildUri($channel, $category, $args = [])
     {
         $uri = $this->base_url . $channel . '/';
-        $uri .= empty($args['q']) ? $category : 'search';
-        $uri .= '.json' . ($args ? '?' . http_build_query($args) : '');
-        $uri .= empty($args['q']) ? '' : '&restrict_sr=true';
+        if (empty($args['q'])) {
+            $uri .= $category;
+        } else {
+            $uri .= 'search';
+        }
+        $uri .= '.json';
+        if ($args) {
+            $uri .= '?' . http_build_query($args);
+            if (! empty($args['q'])) {
+                $uri .= '&restrict_sr=true';
+            }
+        }
+        
+        return $uri;
+    }
+
+    /**
+     * Initiates the remote request to the reddit API
+     * and decodes the response.
+     *
+     * @param string $channel            
+     * @param string $category            
+     * @param array $args            
+     * @return boolean|array
+     */
+    public function request($channel, $category, $args = [])
+    {
+        $uri = $this->buildUri($channel, $category, $args);
         
         /* @var $response /Psr\Http\Message\ResponseInterface */
         try {
             $response = $this->client->request('GET', $uri);
         } catch (\Exception $e) {
-            print_r($e->getMessage());
             return false;
         }
         if ($response->getStatusCode() == 200) {
             $this->payload = $response->getBody()->getContents();
             return $this->getPosts($this->payload);
-        } else {
-            print_r($response->getStatusCode());
         }
         return false;
     }
