@@ -20,7 +20,7 @@ Credit was made during a 48 hour code challenge.
 
 ## Dependencies
 
-The following packages and libraries are required to install CReddit.
+The following packages and libraries are required to install and run CReddit.
 
 - [Composer](https://getcomposer.org)
 - [Node.js & Node Package Manager](https://nodejs.org/en/download/package-manager/)
