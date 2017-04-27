@@ -22,6 +22,7 @@ Credit was made during a 48 hour code challenge.
 
 The following packages and libraries are required to install and run CReddit.
 
+- [Apache2](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-slim-framework-on-ubuntu-14-04#quick-setup-for-prerequisites)
 - [Composer](https://getcomposer.org)
 - [Node.js & Node Package Manager](https://nodejs.org/en/download/package-manager/)
 - [Bower](https://www.npmjs.com/package/bower)
