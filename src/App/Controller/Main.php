@@ -5,6 +5,12 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 
+/**
+ * Main Controller class
+ * 
+ * @author awilliams
+ *
+ */
 class Main
 {
 
