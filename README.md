@@ -31,6 +31,7 @@ The following packages and libraries are required to install and run CReddit.
 - PHP >= v.5.5
 	- Extensions:
 		- mb-string *
+		- mcrypt
 		- php-xml
 
 ## Installation
