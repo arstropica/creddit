@@ -1,0 +1,40 @@
+{
+  "name" : "creddit/slim",
+  "description" : "A simple Reddit client",
+  "version" : "1.0.0",
+  "require" : {
+    "php" : ">=5.5.0",
+    "slim/slim" : "^3.1",
+    "slim/php-view" : "^2.0",
+    "monolog/monolog" : "^1.17",
+    "oscarotero/psr7-middlewares" : "v3.20.0",
+    "nathanmac/parser" : "v4.3",
+    "guzzlehttp/guzzle" : "6.2.3",
+    "slim/twig-view" : "^2.2.0"
+  },
+  "require-dev" : {
+    "phpunit/phpunit" : ">=4.8"
+  },
+  "license" : "MIT",
+  "keywords" : [ "microframework", "rest", "router", "psr7", "reddit" ],
+  "autoload-dev" : {
+    "psr-4" : {
+      "Tests\\" : "tests/"
+    }
+  },
+  "autoload" : {
+    "psr-4" : {
+      "App\\" : "src/App/"
+    }
+  },
+  "scripts" : {
+    "start" : "php -S 0.0.0.0:8080 -t public public/index.php",
+    "test" : "phpunit"
+  },
+  "homepage" : "http://github.com/arstropica/creddit",
+  "authors" : [ {
+    "name" : "Akin Williams",
+    "email" : "aowilliams@arstropica.com",
+    "homepage" : "http://arstropica.com/"
+  } ]
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="CRedditService">
+<head>
+{% block head %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{title}}" />
+<base href="/">
+<title>{{title}}</title>
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+{% endblock %}
+{% endblock head %}
+</head>
+<body>
+	<div id="wrap">
+		{# include the header + navigation #}
+		{% include 'partials/header.twig' %}
+
+		<div class="container">
+			{% block content %}
+			<div ng-view></div>
+			<script type="text/ng-template" id="main">
+    			<h1>
+    				<span class="hint">subreddit: </span>
+    				{{ title }}
+    			</h1>
+    			<hr />
+				<ul class="nav nav-tabs" id="categories">
+				    <li class="{[{ category != 'new' ? 'active' : '' }]}"><a id="hot" href="/{{ channel }}/hot/">Hot</a></li>
+				    <li class="{[{ category == 'new' ? 'active' : '' }]}"><a id="new" href="/{{ channel }}/new/">New</a></li>
+				</ul>
+    			<hr />
+                <div class="row">
+                	<div class="col-xs-12">
+                		<form role="form" method="get" id="clientform" ng-submit="formsubmit()">
+                			<div class="form-group">
+                				<label for="q" class="sr-only">Search</label> <input type="text"
+                					class="form-control input-lg" placeholder="Search" id="q" name="q" value="{{ args.params.q }}"  ng-keyup="$event.keyCode == 13 && formsubmit()" />
+                			</div>
+							<input class="nav-input" type="hidden" name="before" id="before" value="{{ args.params.before }}" />
+							<input class="nav-input" type="hidden" name="after" id="after" value="{{ args.params.after }}" />
+							<input type="hidden" name="count" id="count" value="{{ args.params.count }}" />
+							<input type="hidden" name="limit" id="limit" value="{{ args.params.limit }}" />
+                		</form>
+                	</div>
+                </div>
+    			<div class="row" id="content" ng-controller="SubRedditCtrl">
+					<img id="spinner" ng-src="img/spinner.gif" ng-show="loading">
+    				{# include the content #}
+    				{% include 'partials/posts.twig' %}
+    			</div>
+                <div class="row">
+                	<div class="col-xs-12">
+                		<div class="well well-small text-center">
+                			<nav aria-label="..." paginate before="navigation.before" after="navigation.after">
+                			</nav>
+                		</div>
+                	</div>
+                </div>
+    		</script>
+			{% endblock content %}
+		</div>
+		<div id="push"></div>
+	</div>
+
+	{# include the footer #}
+	{% include 'partials/footer.twig' %}
+	{% block
+		javascripts %}
+	<script type="text/javascript" src="js/angular.bundle.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	{% endblock %}
+</body>
+
+</html>

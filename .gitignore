@@ -1,0 +1,6 @@
+.settings
+.buildfile
+.project
+/vendor/
+/logs/*
+!/logs/README.md
