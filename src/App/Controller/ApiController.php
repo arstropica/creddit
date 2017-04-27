@@ -6,6 +6,12 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use App\Controller\Main;
 
+/**
+ * API Requests Controller
+ *
+ * @author awilliams
+ *        
+ */
 class ApiController extends Main
 {
 
@@ -27,11 +33,21 @@ class ApiController extends Main
      */
     public $defaultCategory = 'hot';
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->parser = new Parser();
     }
 
+    /**
+     * Handles API requests
+     *
+     * {@inheritdoc}
+     *
+     * @see \App\Controller\Main::dispatch()
+     */
     public function dispatch(Request $request, Response $response, $args)
     {
         $parser = $this->parser;

@@ -7,9 +7,9 @@ use Slim\Views\Twig;
 
 /**
  * Main Controller class
- * 
- * @author awilliams
  *
+ * @author awilliams
+ *        
  */
 class Main
 {
@@ -44,16 +44,35 @@ class Main
      */
     protected $limit = 10;
 
+    /**
+     * Constructor
+     *
+     * @param Twig $renderer            
+     */
     public function __construct(Twig $renderer)
     {
         $this->renderer = $renderer;
     }
 
+    /**
+     * Generates Title
+     *
+     * @param Request $request            
+     * @return string
+     */
     protected function generateTitle($request)
     {
         return $this->channel . ' / ' . $this->category;
     }
 
+    /**
+     * Handles template requests and returns a response
+     *
+     * @param Request $request            
+     * @param Response $response            
+     * @param array $args            
+     * @return \Psr\Http\Message\ResponseInterface
+     */
     public function dispatch(Request $request, Response $response, $args)
     {
         $channel = $request->getAttribute('channel', $this->channel);
@@ -115,6 +134,7 @@ class Main
     }
 
     /**
+     * Count must be 0 for the first and last page(s).
      *
      * @return number $count
      */
