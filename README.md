@@ -1,5 +1,22 @@
 # CReddit
-Simple Reddit reader
+A simple Reddit reader
+
+## About
+Credit was made during a 48 hour code challenge.
+
+- __PHP Framework:__ 
+	- Slim PHP
+- __Front End Frameworks:__
+    - Bootstrap
+    - AngularJS
+- __Front End Scripting:__
+    - Twig Template
+    - Sass
+- __Task Runner:__ 
+	- Grunt
+- __Dependency Managers:__
+    - Bower
+    - Node Package Manager
 
 ## Installation
 
