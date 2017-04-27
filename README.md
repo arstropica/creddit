@@ -22,7 +22,6 @@ Credit was made during a 48 hour code challenge.
 
 - Clone into web root parent directory.
 - Point web document root to `./public` folder.
-- Run `composer install` in project root.
 - In `./dev`, run `npm install`, then `bower install && grunt build` to finish loading dependencies and build assets.
 
 
