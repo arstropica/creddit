@@ -6820,6 +6820,7 @@ blockquote > blockquote > blockquote > blockquote > blockquote > blockquote > p 
 
 .nav-tabs {
   border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
 }
 .nav-tabs > li {
   float: left;
