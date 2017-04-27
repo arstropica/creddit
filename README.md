@@ -32,4 +32,4 @@ Credit was made during a 48 hour code challenge.
 
 - map `./public` folder to web root.
 - Go to root url in your browser.
-- The default subreddit is `gameofthrones` but you can browse any subreddit.
+- The default subreddit is `gameofthrones` but you can browse any subreddit by going to the `/{subreddit_name}/`.
