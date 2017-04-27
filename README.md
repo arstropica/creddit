@@ -18,7 +18,24 @@ Credit was made during a 48 hour code challenge.
     - Bower
     - Node Package Manager
 
+## Dependencies
+
+The following packages and libraries are required to install CReddit.
+
+- [Composer](https://getcomposer.org)
+- [Node.js & Node Package Manager](https://nodejs.org/en/download/package-manager/)
+- [Bower](https://www.npmjs.com/package/bower)
+- [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+	- [Sass](http://sass-lang.com/install)
+	- [Grunt](https://gruntjs.com/installing-grunt)
+- PHP >= v.5.5
+	- Extensions:
+		- mb-string *
+		- php-xml
+
 ## Installation
+
+After installing the dependencies, following the below steps to finish installing CReddit.
 
 - Clone into web root parent directory.
 - Point web document root to `./public` folder.
