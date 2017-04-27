@@ -1,26 +1,18 @@
-# Slim Framework 3 Skeleton Application
+# CReddit
+Simple Reddit reader
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
+## Installation
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+- Clone into web root parent directory.
+- Point web document root to `./public` folder.
+- Run `composer install` in project root.
+- In `./dev`, run `npm install`, then `bower install && grunt build` to finish loading dependencies and build assets.
 
-## Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+## To Run
 
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
+#### From Browser
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
-
-To run the application in development, you can also run this command. 
-
-	php composer.phar start
-
-Run this command to run the test suite
-
-	php composer.phar test
-
-That's it! Now go build something cool.
+- map `./public` folder to web root.
+- Go to root url in your browser.
+- The default subreddit is `gameofthrones` but you can browse any subreddit.
