@@ -54,6 +54,8 @@ app.controller("SubRedditCtrl", ['$scope', '$routeParams', '$sce', 'Posts', func
 		after : null
 	};
 	$scope.count = 10;
+	$scope.error = false;
+	$scope.noresult = false;
 
 	$scope.formsubmit = function() {
 		$('.nav-input').val('');
@@ -92,8 +94,7 @@ app.controller("SubRedditCtrl", ['$scope', '$routeParams', '$sce', 'Posts', func
 		return newValue;
 	};
 
-	// Description : Format unix timestamp to relative
-	// time.
+	// Description : Format unix timestamp to relative time.
 	$scope.timeSince = function(unix) {
 		var timeStamp = new Date(unix * 1000);
 		var now = new Date(), secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
@@ -165,6 +166,14 @@ app.controller("SubRedditCtrl", ['$scope', '$routeParams', '$sce', 'Posts', func
 				}
 			}
 			$scope.loading = false;
+			$scope.error = false;
+			if (! $scope.posts.length) {
+				$scope.noresult = true;
+			}
+		}, function(error) {
+			$scope.loading = false;
+			$scope.noresult = false;
+			$scope.error = true;
 		});
 	};
 

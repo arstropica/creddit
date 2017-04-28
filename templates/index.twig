@@ -28,8 +28,8 @@
     			</h1>
     			<hr />
 				<ul class="nav nav-tabs" id="categories">
-				    <li class="{[{ category != 'new' ? 'active' : '' }]}"><a id="hot" href="/{{ channel }}/hot/">Hot</a></li>
-				    <li class="{[{ category == 'new' ? 'active' : '' }]}"><a id="new" href="/{{ channel }}/new/">New</a></li>
+				    <li class="{[{ category != 'new' ? 'active' : '' }]}"><a target="_self" id="hot" href="/{{ channel }}/hot/">Hot</a></li>
+				    <li class="{[{ category == 'new' ? 'active' : '' }]}"><a target="_self" id="new" href="/{{ channel }}/new/">New</a></li>
 				</ul>
                 <div class="row">
                 	<div class="col-xs-12">
@@ -47,6 +47,10 @@
                 </div>
     			<div class="row" id="content" ng-controller="SubRedditCtrl">
 					<img id="spinner" ng-src="img/spinner.gif" ng-show="loading">
+					<div class="col-xs-12 text-center">
+						<h4 id="error_msg" ng-show="error">Sorry, CReddit was unable to complete your request.  Please try again.</h4>
+						<h4 id="no_results" ng-show="noresult">Sorry, There were no results for your request. Sadly, that's all CReddit knows :/ .</h4>
+					</div>
     				{# include the content #}
     				{% include 'partials/posts.twig' %}
     			</div>
