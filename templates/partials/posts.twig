@@ -19,7 +19,7 @@
 				</h2>
 				<div class="post_excerpt">
 					<p class="post_meta">
-						submitted <span class="since" ng-bind="timeSince(post.created)"></span>
+						submitted <span class="since" ng-bind="timeSince(post.created_utc)"></span>
 						ago by <span class="author" ng-bind="post.author"></span><span
 							ng-hide="post.distinguished == null"> (M)</span><span
 							class="announcement" ng-show="post.stickied == true"> - <i>announcement</i></span>

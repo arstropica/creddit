@@ -99,7 +99,7 @@ app.controller("SubRedditCtrl", ['$scope', '$routeParams', '$sce', 'Posts', func
 		var timeStamp = new Date(unix * 1000);
 		var now = new Date(), secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
 		if (secondsPast < 0) {
-			return 'a long time';
+			return 'an unknown time';
 		}
 		if (secondsPast < 60) {
 			return parseInt(secondsPast) + 's';
