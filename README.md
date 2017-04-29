@@ -37,7 +37,7 @@ The following packages and libraries are required to install and run CReddit.
 
 ## Installation
 
-After installing the dependencies, following the below steps to finish installing CReddit.
+After installing the dependencies, follow the below steps to finish installing CReddit.
 
 - Clone into web root parent directory.
 - Point web document root to `./public` folder.
